@@ -35,4 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('locale', fn() => Inertia::render('Locale/Index'));
+
 require __DIR__.'/auth.php';

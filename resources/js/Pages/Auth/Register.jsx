@@ -36,7 +36,7 @@ export default function Register() {
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel forInput="name" value="Name" />
+                    <InputLabel forInput="name" value={ __('Name') } />
 
                     <TextInput
                         id="name"
@@ -53,7 +53,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel forInput="email" value="Email" />
+                    <InputLabel forInput="email" value={ __('Email') } />
 
                     <TextInput
                         id="email"
@@ -70,7 +70,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel forInput="password" value="Password" />
+                    <InputLabel forInput="password" value={ __('Password') } />
 
                     <TextInput
                         id="password"
@@ -87,7 +87,7 @@ export default function Register() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel forInput="password_confirmation" value="Confirm Password" />
+                    <InputLabel forInput="password_confirmation" value={ __('Confirm Password') }Password />
 
                     <TextInput
                         id="password_confirmation"
@@ -107,11 +107,11 @@ export default function Register() {
                         href={route('login')}
                         className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                        Already registered?
+                        { __('Already registered?') }
                     </Link>
 
                     <PrimaryButton className="ml-4" processing={processing}>
-                        Register
+                        { __('Register') }
                     </PrimaryButton>
                 </div>
             </form>
