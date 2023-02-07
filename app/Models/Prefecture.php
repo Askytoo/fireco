@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Events extends Model
+class Prefecture extends Model
 {
     use HasFactory;
+
+    public function areas()
+    {
+        return $this->hasMany(Area::class);
+    }
 }

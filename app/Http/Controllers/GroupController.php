@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEventsRequest;
-use App\Http\Requests\UpdateEventsRequest;
-use App\Models\Events;
+use App\Http\Requests\StoreGroupRequest;
+use App\Http\Requests\UpdateGroupRequest;
+use App\Models\Group;
 
-class EventsController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class EventsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreEventsRequest  $request
+     * @param  \App\Http\Requests\StoreGroupRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEventsRequest $request)
+    public function store(StoreGroupRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class EventsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Events  $events
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Http\Response
      */
-    public function show(Events $events)
+    public function show(Group $groups)
     {
         //
     }
@@ -53,10 +53,10 @@ class EventsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Events  $events
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Http\Response
      */
-    public function edit(Events $events)
+    public function edit(Group $groups)
     {
         //
     }
@@ -64,11 +64,11 @@ class EventsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateEventsRequest  $request
-     * @param  \App\Models\Events  $events
+     * @param  \App\Http\Requests\UpdateGroupRequest  $request
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEventsRequest $request, Events $events)
+    public function update(UpdateGroupRequest $request, Group $groups)
     {
         //
     }
@@ -76,10 +76,10 @@ class EventsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Events  $events
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Events $events)
+    public function destroy(Group $groups)
     {
         //
     }

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Groups;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class GroupsPolicy
+class GroupPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class GroupsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Groups  $groups
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Groups $groups)
+    public function view(User $user, Group $groups)
     {
         //
     }
@@ -48,10 +48,10 @@ class GroupsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Groups  $groups
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Groups $groups)
+    public function update(User $user, Group $groups)
     {
         //
     }
@@ -60,10 +60,10 @@ class GroupsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Groups  $groups
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Groups $groups)
+    public function delete(User $user, Group $groups)
     {
         //
     }
@@ -72,10 +72,10 @@ class GroupsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Groups  $groups
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Groups $groups)
+    public function restore(User $user, Group $groups)
     {
         //
     }
@@ -84,10 +84,10 @@ class GroupsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Groups  $groups
+     * @param  \App\Models\Group  $groups
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Groups $groups)
+    public function forceDelete(User $user, Group $groups)
     {
         //
     }
