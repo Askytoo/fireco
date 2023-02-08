@@ -2,13 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Group;
-use Carbon\Carbon;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class GroupSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,6 +15,6 @@ class GroupSeeder extends Seeder
      */
     public function run()
     {
-        Group::factory()->count(7)->create();
+        User::factory()->count(70)->create();
     }
 }
