@@ -10,7 +10,7 @@ export default function Event({ event }) {
                 <div className="flex justify-between items-center">
                     <div>
                         <span className="text-gray-800">{event.name}</span>
-                        <small className="ml-2 text-sm text-gray-600">{new Date(event.created_at).toLocaleString()}</small>
+                        <small className="ml-2 text-sm text-gray-600">{new Date(event.open_at).toLocaleString()}</small>
                     </div>
                 </div>
                 <p className="mt-4 text-lg text-gray-900">{event.detail}</p>

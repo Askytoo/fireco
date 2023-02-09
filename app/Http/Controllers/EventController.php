@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateEventRequest;
 use App\Models\Area;
 use App\Models\Event;
 use App\Models\Group;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -25,7 +26,8 @@ class EventController extends Controller
         $area_id = Group::where('id', $group_id)->first()->area_id;
         return Inertia::render('Events/Index', [
             'events' => Event::where('area_id', $area_id)
-                ->latest('open_at')
+                ->whereDate('open_at', '>=', Carbon::today())
+                ->orderBy('open_at')
                 ->get(),
         ]);
     }
