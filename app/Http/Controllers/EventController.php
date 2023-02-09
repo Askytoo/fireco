@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\Area;
 use App\Models\Event;
+use App\Models\Group;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class EventController extends Controller
 {
@@ -14,10 +19,14 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): Response
     {
+        $group_id = Auth::user()->group_id;
+        $area_id = Group::where('id', $group_id)->first()->area_id;
         return Inertia::render('Events/Index', [
-
+            'events' => Event::where('area_id', $area_id)
+                ->latest('open_at')
+                ->get(),
         ]);
     }
 
@@ -26,7 +35,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): void
     {
         //
     }
@@ -37,7 +46,7 @@ class EventController extends Controller
      * @param  \App\Http\Requests\StoreEventRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEventRequest $request)
+    public function store(StoreEventRequest $request): void
     {
         //
     }
@@ -48,7 +57,7 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show(Event $event): void
     {
         //
     }
@@ -59,7 +68,7 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit(Event $event): void
     {
         //
     }
@@ -71,7 +80,7 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEventRequest $request, Event $event)
+    public function update(UpdateEventRequest $request, Event $event): void
     {
         //
     }
@@ -82,7 +91,7 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy(Event $event): void
     {
         //
     }

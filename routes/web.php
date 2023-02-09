@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Group;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\EventController;
@@ -27,7 +29,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Dashboard', [
+        'area_id' => function() {
+            $group_id = Auth::user()->group_id;
+            $area_id = Group::where('id', $group_id)->first()->area_id;
+            return $area_id;
+        }
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -37,7 +45,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('events', EventController::class)
-    ->only(['index', 'store'])
     ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

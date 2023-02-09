@@ -5,7 +5,7 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 
-export default function Authenticated({ auth, header, children }) {
+export default function Authenticated({ auth, header, children, area_id }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
@@ -22,7 +22,10 @@ export default function Authenticated({ auth, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Dashboard
+                                    { __('Dashboard') }
+                                </NavLink>
+                                <NavLink href={route('events.index', area_id)} active={route().current('events.index')}>
+                                    { __('Events') }
                                 </NavLink>
                             </div>
                         </div>
@@ -93,7 +96,10 @@ export default function Authenticated({ auth, header, children }) {
                 <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
+                            { __('Dashboard') }
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('events.index', area_id)} active={route().current('events.index')}>
+                            { __('Events') }
                         </ResponsiveNavLink>
                     </div>
 
