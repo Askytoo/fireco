@@ -45,16 +45,31 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * relation user to group
+     *
+     * @return 
+     */
     public function group()
     {
         return $this->belongsTo(Group::class);
     }
 
+    /**
+     * relation user to events
+     *
+     * @return 
+     */
     public function events()
     {
         return $this->hasMany(EventMember::class);
     }
     
+    /**
+     * relation user to positoon
+     *
+     * @return 
+     */
     public function position()
     {
         return $this->belongsTo(Position::class);
