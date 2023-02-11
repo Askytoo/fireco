@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class EventTest extends TestCase
@@ -32,13 +33,16 @@ class EventTest extends TestCase
      */
     public function testEventIndex()
     {
-        // $this->seed('EventTableSeeder');
-        $user = User::factory()->create();
+        $user = User::createTestUserSolvedForignKey();
 
+        $area_id = DB::table('areas')->first()->id;
+
+        Event::factory()->count(10)->create(['area_id' => $area_id]);
         $response = $this->actingAs($user)
             ->withSession(['foo' => 'bar'])
             ->get(route('events.index'));
 
-        $response->assertOk();
+        $response
+            ->assertOk();
     }
 }

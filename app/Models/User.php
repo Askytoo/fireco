@@ -46,6 +46,34 @@ class User extends Authenticatable
     ];
 
     /**
+     * 外部制約を解決したユーザーをGroupとAreaのデータと紐づけて作成する
+     *
+     * @return App\Models\User
+     */
+    public static function createTestUserSolvedForignKey()
+    {
+        $user = User::factory()->create([
+            'group_id' => function() {
+                return Group::factory()->create([
+                    'area_id' => function() {
+                        return Area::factory()->create([
+                            'prefecture_id' => function() {
+                                $prefecture = new Prefecture();
+                                $prefecture->id   = 21;
+                                $prefecture->code = 21;
+                                $prefecture->name = '岐阜県';
+                                $prefecture->save();
+                                return 21;
+                            }
+                        ])->id; }
+                ])->id;
+            }
+        ]);
+
+        return $user;
+    }
+
+    /**
      * relation user to group
      *
      * @return 
