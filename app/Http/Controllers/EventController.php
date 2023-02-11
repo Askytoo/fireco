@@ -26,8 +26,8 @@ class EventController extends Controller
         $area_id = Group::where('id', $group_id)->first()->area_id;
         return Inertia::render('Events/Index', [
             'events' => Event::where('area_id', $area_id)
-                ->whereDate('open_at', '>=', Carbon::today())
-                ->orderBy('open_at')
+                ->whereDate('date', '>=', Carbon::today())
+                ->orderBy('date')
                 ->get(),
         ]);
     }
@@ -37,8 +37,9 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(): void
+    public function create(): Response
     {
+        return Inertia::render('Events/Create');
     }
 
     /**
