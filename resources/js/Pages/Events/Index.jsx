@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import Event from '@/Components/Events';
+import Event from '@/Components/Events/Index';
 import { useForm, Head } from '@inertiajs/react';
 
 export default function Index({ auth, events }) {

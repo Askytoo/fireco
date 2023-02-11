@@ -30,9 +30,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard', [
-        'area_id' => function() {
-            return Auth::user()->group()->first()->area();
-        }
+        'area_id' =>  Auth::user()->group()->first()->area(),
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

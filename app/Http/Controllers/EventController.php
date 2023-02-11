@@ -39,7 +39,6 @@ class EventController extends Controller
      */
     public function create(): void
     {
-        //
     }
 
     /**

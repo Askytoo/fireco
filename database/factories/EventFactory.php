@@ -23,12 +23,13 @@ class EventFactory extends Factory
         self::$sequence++;
         return [
             'id' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
-            'name' => fake()->jobTitle(),
+            'name' => '第' . self::$sequence . '会議',
             'area_id' => DB::table('areas')
                 ->where('name', '瑞穂市消防団')
                 ->value('id'),
-            'open_at' => Carbon::now()->addDay(self::$sequence),
-            'close_at' => Carbon::now()->addDay(self::$sequence)->addHour(2),
+            'date' => Carbon::today()->addDay(self::$sequence),
+            'open_at' => Carbon::now(),
+            'close_at' => Carbon::now()->addHour(2),
             'place' => '第' . self::$sequence . '会議室',
             'target' => '全消防団員',
             'detail' => '詳細情報....',
